@@ -24,15 +24,15 @@ class PurchaseOrder(models.Model):
 
     def button_confirm(self):
         res = super().button_confirm()
-        for order in self:
-            if order._check_exchausted_blanket_order_line():
-                raise ValidationError(
-                    _(
-                        "Cannot confirm order %s as one of the lines refers "
-                        "to a blanket order that has no remaining quantity."
-                    )
-                    % order.name
-                )
+        # for order in self:
+        #     if order._check_exchausted_blanket_order_line():
+        #         raise ValidationError(
+        #             _(
+        #                 "Cannot confirm order %s as one of the lines refers "
+        #                 "to a blanket order that has no remaining quantity."
+        #             )
+        #             % order.name
+        #         )
         return res
 
     @api.constrains("partner_id")

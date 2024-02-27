@@ -37,10 +37,10 @@ class BlanketOrderWizard(models.TransientModel):
         )
         company_id = False
 
-        if float_is_zero(
-            sum(bo_lines.mapped("remaining_uom_qty")), precision_digits=precision
-        ):
-            raise UserError(_("All lines have already been completed."))
+        # if float_is_zero(
+        #     sum(bo_lines.mapped("remaining_uom_qty")), precision_digits=precision
+        # ):
+        #     raise UserError(_("All lines have already been completed."))
 
         for line in bo_lines:
 
@@ -84,10 +84,11 @@ class BlanketOrderWizard(models.TransientModel):
                 },
             )
             for line in bo_lines
-            if line.remaining_uom_qty > 0
+            if line.remaining_uom_qty != 0
         ]
         return lines
 
+    # or line.name == 'Anticipo a subcontratista'
     blanket_order_id = fields.Many2one(
         "purchase.blanket.order", readonly=True, default=_default_order
     )

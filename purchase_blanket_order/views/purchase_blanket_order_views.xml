@@ -465,7 +465,7 @@
         id="menu_purchase_blanket_order_config"
         parent="purchase.menu_procurement_management"
         groups="purchase.group_purchase_manager"
-        sequence="8"
+        sequence="10"
         action="act_open_purchase_blanket_order_view"
     />
     <menuitem

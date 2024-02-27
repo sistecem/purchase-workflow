@@ -16,6 +16,11 @@
                     optional="hide"
                     context="{'from_purchase_order': True}"
                 />
+<!--                 <field-->
+<!--                    name="remaining_uom_qty"-->
+<!--                    optional="hide"-->
+<!--                    context="{'from_purchase_order': True}"-->
+<!--                />-->
             </xpath>
             <field name="order_line" position="attributes">
                 <attribute
@@ -42,4 +47,5 @@
             </xpath>
         </field>
     </record>
+
 </odoo>
